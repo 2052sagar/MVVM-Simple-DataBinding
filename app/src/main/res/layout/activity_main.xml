@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <data>
+        <variable
+            name="login"
+            type="com.innogentechnology.mvvmexample.viewmodel.UserModel" />
+        <variable
+            name="userLoginEvent"
+            type="com.innogentechnology.mvvmexample.commands.UserLogin" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        android:padding="5dp"
+        tools:context=".MainActivity">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:hint="@{login.emailHint}"
+            android:text="@={login.email}"
+            android:id="@+id/emailId"
+          />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:hint="@{login.passwordHint}"
+            android:text="@={login.password}"
+            android:id="@+id/passwordId"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorAccent"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:onClick="@{(v)->userLoginEvent.onClickLogin()}"
+            />
+
+    </LinearLayout>
+
+</layout>
